@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cross Product — Quick Reference</title>
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    body{
+      font-family: "Times New Roman", Times, serif;
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 0;
+      background: #fff;
+      color: #111;
+    }
+    .container{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 26px 18px 60px;
+    }
+    h1{ font-size: 30px; margin: 10px 0 8px; }
+    h2{ font-size: 22px; margin: 22px 0 8px; }
+    .card{
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 14px 14px 10px;
+      margin: 14px 0;
+      background: #fafafa;
+    }
+    .eq{
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    ul{ margin: 8px 0 0 22px; }
+    .back{
+      margin-top: 18px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <h1>Vector Cross Product — Quick Reference</h1>
+
+  <div class="card">
+    <h2>Definition (magnitude + direction)</h2>
+    <div class="eq">\(\vec{A}\times\vec{B} = |\vec{A}|\,|\vec{B}|\,\sin\theta\;\hat{n}\)</div>
+    <ul>
+      <li>\(\theta\) is the angle between \(\vec{A}\) and \(\vec{B}\).</li>
+      <li>\(\hat{n}\) is a unit vector perpendicular to the plane of \(\vec{A}\) and \(\vec{B}\).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Right-hand rule</h2>
+    <ul>
+      <li>Point fingers along \(\vec{A}\).</li>
+      <li>Curl fingers toward \(\vec{B}\) through the smaller angle.</li>
+      <li>Thumb gives the direction of \(\vec{A}\times\vec{B}\).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Key properties</h2>
+    <ul>
+      <li>Anti-commutative: \(\vec{A}\times\vec{B} = -(\vec{B}\times\vec{A})\)</li>
+      <li>\(\vec{A}\times\vec{B}=\vec{0}\) if vectors are parallel or one is zero</li>
+      <li>Maximum magnitude when \(\theta=90^\circ\)</li>
+      <li>\(\vec{A}\times\vec{B}\) is perpendicular to both \(\vec{A}\) and \(\vec{B}\)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Unit vector cross products</h2>
+    <div class="eq">
+      \(\hat{i}\times\hat{j}=\hat{k},\quad \hat{j}\times\hat{k}=\hat{i},\quad \hat{k}\times\hat{i}=\hat{j}\)
+    </div>
+    <div class="eq">
+      \(\hat{j}\times\hat{i}=-\hat{k},\quad \hat{k}\times\hat{j}=-\hat{i},\quad \hat{i}\times\hat{k}=-\hat{j}\)
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Component (determinant) form</h2>
+    <div class="eq">
+      \[
+      \vec{A}\times\vec{B}=
+      \begin{vmatrix}
+      \hat{i} & \hat{j} & \hat{k}\\
+      A_x & A_y & A_z\\
+      B_x & B_y & B_z
+      \end{vmatrix}
+      \]
+    </div>
+  </div>
+
+  <div class="back">
+    Tip: Keep this file in the same folder as your Magnetic Field chapter so the link works.
+  </div>
+
+</div>
+</body>
+</html>

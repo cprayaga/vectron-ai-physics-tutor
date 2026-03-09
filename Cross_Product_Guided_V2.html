@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cross Product Guided Lesson — Vectron V1</title>
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <style>
+    body{
+      font-family: "Times New Roman", Times, serif;
+      font-size: 19px;
+      line-height: 1.55;
+      margin: 0;
+      background: #ffffff;
+      color: #111;
+    }
+    .container{
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+    h1{ font-size: 32px; margin: 10px 0 6px; }
+    h2{ font-size: 25px; margin: 26px 0 10px; }
+    .vectron{
+      background: #eef4fb;
+      border-left: 5px solid #2c4f7c;
+      padding: 12px 14px;
+      margin: 16px 0;
+    }
+    .card{
+      border: 1px solid #d9d9d9;
+      border-radius: 10px;
+      padding: 16px;
+      margin: 18px 0;
+      background: #fafafa;
+    }
+    .question{
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .btn{
+      display: inline-block;
+      margin: 6px 8px 6px 0;
+      padding: 8px 14px;
+      font-size: 17px;
+      border: 1px solid #777;
+      border-radius: 8px;
+      background: #f3f3f3;
+      cursor: pointer;
+    }
+    .btn:hover{
+      background: #e7eef7;
+    }
+    .feedback{
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      display: none;
+    }
+    .good{
+      background: #eaf7ea;
+      border: 1px solid #8db88d;
+    }
+    .try{
+      background: #fff4e5;
+      border: 1px solid #d7aa5b;
+    }
+    .hint{
+      margin-top: 10px;
+      color: #1f4d7a;
+      display: none;
+    }
+    .eq{
+      font-size: 22px;
+      margin: 10px 0;
+    }
+    .step{
+      background: #f8fbff;
+      border-left: 4px solid #5d89b3;
+      padding: 10px 12px;
+      margin: 14px 0;
+    }
+    .hidden{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>Guided Cross Product Lesson</h1>
+<div style="margin:10px 0 20px 0; padding:10px 12px; background:#eef4fb; border-left:5px solid #2c4f7c;">
+<b>Vectron AI Physics Tutor</b><br>
+Guided Lesson: Vector Cross Product<br>
+Estimated time: 5–7 minutes
+</div>
+
+    <div class="vectron">
+      <b>Vectron idea:</b> Do not start by memorizing a formula. Start by asking:
+      <i>What kind of quantity is this? What determines its size? What determines its direction?</i>
+    </div>
+
+    <div class="card">
+      <div class="question">Step 1. If you compute \(\vec{A}\times\vec{B}\), what kind of quantity do you get?</div>
+      <button class="btn" onclick="answer1('scalar')">A scalar</button>
+      <button class="btn" onclick="answer1('vector')">A vector</button>
+      <button class="btn" onclick="answer1('depends')">It depends on the vectors</button>
+
+      <div id="fb1a" class="feedback try">
+        Not quite. A dot product gives a scalar. The cross product behaves differently.
+      </div>
+      <div id="fb1b" class="feedback good">
+        Correct. The cross product gives a <b>vector</b>.
+      </div>
+      <div id="fb1c" class="feedback try">
+        Not quite. Its numerical value depends on the vectors, but its <i>type</i> is always the same.
+      </div>
+
+      <div id="next1" class="step hidden">
+        Good. So the cross product is not just a number. We must think about both <b>magnitude</b> and <b>direction</b>.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="question">Step 2. What determines the magnitude of \(\vec{A}\times\vec{B}\)?</div>
+      <button class="btn" onclick="answer2('sum')">\(|\vec{A}| + |\vec{B}|\)</button>
+      <button class="btn" onclick="answer2('sin')">\(|\vec{A}||\vec{B}|\sin\theta\)</button>
+      <button class="btn" onclick="answer2('cos')">\(|\vec{A}||\vec{B}|\cos\theta\)</button>
+      <button class="btn" onclick="toggleHint('hint2')">Need a hint</button>
+
+      <div id="hint2" class="hint">
+        Think about two parallel vectors. Their cross product should vanish. Which trig function becomes zero for parallel vectors?
+      </div>
+
+      <div id="fb2a" class="feedback try">
+        No. The magnitude is not the sum of the magnitudes.
+      </div>
+      <div id="fb2b" class="feedback good">
+        Correct. The magnitude is
+        <div class="eq">\(|\vec{A}\times\vec{B}| = |\vec{A}||\vec{B}|\sin\theta\)</div>
+      </div>
+      <div id="fb2c" class="feedback try">
+        That would match the dot product geometry, not the cross product.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="question">Step 3. When is the magnitude of \(\vec{A}\times\vec{B}\) largest?</div>
+      <button class="btn" onclick="answer3('0')">\(\theta=0^\circ\)</button>
+      <button class="btn" onclick="answer3('90')">\(\theta=90^\circ\)</button>
+      <button class="btn" onclick="answer3('180')">\(\theta=180^\circ\)</button>
+
+      <div id="fb3a" class="feedback try">
+        No. Parallel vectors give zero cross product.
+      </div>
+      <div id="fb3b" class="feedback good">
+        Correct. Since \(\sin\theta\) is largest at \(90^\circ\), the cross product is largest when the vectors are perpendicular.
+      </div>
+      <div id="fb3c" class="feedback try">
+        No. Anti-parallel vectors also give zero cross product.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="question">Step 4. What determines the direction of \(\vec{A}\times\vec{B}\)?</div>
+      <button class="btn" onclick="answer4('parallel')">It points along \(\vec{A}\)</button>
+      <button class="btn" onclick="answer4('between')">It points between \(\vec{A}\) and \(\vec{B}\)</button>
+      <button class="btn" onclick="answer4('perp')">It is perpendicular to the plane of \(\vec{A}\) and \(\vec{B}\)</button>
+      <button class="btn" onclick="toggleHint('hint4')">Need a hint</button>
+
+      <div id="hint4" class="hint">
+        The cross product creates a new vector that is not in the same plane as the original two.
+      </div>
+
+      <div id="fb4a" class="feedback try">
+        No. It does not point along either original vector.
+      </div>
+      <div id="fb4b" class="feedback try">
+        No. That would still lie in the original plane.
+      </div>
+      <div id="fb4c" class="feedback good">
+        Correct. The direction is perpendicular to the plane of \(\vec{A}\) and \(\vec{B}\), chosen by the right-hand rule.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Right-hand rule</h2>
+      <p>
+        Point your fingers along \(\vec{A}\). Curl them toward \(\vec{B}\) through the smaller angle.
+        Your thumb points in the direction of \(\vec{A}\times\vec{B}\).
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="question">Step 5. If \(\hat{i}\times\hat{j}=\hat{k}\), then what is \(\hat{j}\times\hat{i}\)?</div>
+      <button class="btn" onclick="answer5('k')">\(\hat{k}\)</button>
+      <button class="btn" onclick="answer5('-k')">\(-\hat{k}\)</button>
+      <button class="btn" onclick="answer5('0')">\(\vec{0}\)</button>
+
+      <div id="fb5a" class="feedback try">
+        Not quite. Reversing the order changes the sign.
+      </div>
+      <div id="fb5b" class="feedback good">
+        Correct. Cross products are anti-commutative:
+        <div class="eq">\(\vec{A}\times\vec{B}=-(\vec{B}\times\vec{A})\)</div>
+      </div>
+      <div id="fb5c" class="feedback try">
+        No. The result is not zero just because the order changed.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Summary</h2>
+      <div class="eq">\(\vec{A}\times\vec{B}=|\vec{A}||\vec{B}|\sin\theta\,\hat{n}\)</div>
+      <ul>
+        <li>The result is a <b>vector</b>.</li>
+        <li>Its magnitude depends on \(\sin\theta\).</li>
+        <li>Its direction is perpendicular to the plane of the two vectors.</li>
+        <li>The right-hand rule chooses the direction.</li>
+        <li>Reversing the order reverses the sign.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Next step</h2>
+      <p>
+        In the magnetic force law, \(\vec{F}=q\,\vec{v}\times\vec{B}\), the cross product is exactly what determines why the magnetic force is perpendicular to both \(\vec{v}\) and \(\vec{B}\).
+      </p>
+    </div>
+<div style="margin-top:30px; padding:16px; background:#eef7ee; border-left:5px solid #3a7f3a;">
+
+<h2>✓ Lesson Complete</h2>
+
+<p>
+You have now reviewed the key ideas of the vector cross product:
+</p>
+
+<ul>
+<li>The cross product produces a <b>vector</b>.</li>
+<li>Its magnitude depends on \( |\vec{A}| |\vec{B}| \sin\theta \).</li>
+<li>The direction is perpendicular to the plane of the two vectors.</li>
+<li>The right-hand rule determines the direction.</li>
+</ul>
+
+<p>
+You are now ready to understand the <b>magnetic force law</b>.
+</p>
+
+<p>
+<a href="Chapter_MagneticField_V2.html">
+Return to the Magnetic Field Lesson →
+</a>
+</p>
+
+</div>
+  </div>
+
+  <script>
+    function hideGroup(ids){
+      ids.forEach(id => document.getElementById(id).style.display = "none");
+    }
+
+    function answer1(choice){
+      hideGroup(["fb1a","fb1b","fb1c"]);
+      if(choice==="scalar"){ document.getElementById("fb1a").style.display="block"; }
+      if(choice==="vector"){
+        document.getElementById("fb1b").style.display="block";
+        document.getElementById("next1").classList.remove("hidden");
+      }
+      if(choice==="depends"){ document.getElementById("fb1c").style.display="block"; }
+    }
+
+    function answer2(choice){
+      hideGroup(["fb2a","fb2b","fb2c"]);
+      if(choice==="sum"){ document.getElementById("fb2a").style.display="block"; }
+      if(choice==="sin"){ document.getElementById("fb2b").style.display="block"; }
+      if(choice==="cos"){ document.getElementById("fb2c").style.display="block"; }
+    }
+
+    function answer3(choice){
+      hideGroup(["fb3a","fb3b","fb3c"]);
+      if(choice==="0"){ document.getElementById("fb3a").style.display="block"; }
+      if(choice==="90"){ document.getElementById("fb3b").style.display="block"; }
+      if(choice==="180"){ document.getElementById("fb3c").style.display="block"; }
+    }
+
+    function answer4(choice){
+      hideGroup(["fb4a","fb4b","fb4c"]);
+      if(choice==="parallel"){ document.getElementById("fb4a").style.display="block"; }
+      if(choice==="between"){ document.getElementById("fb4b").style.display="block"; }
+      if(choice==="perp"){ document.getElementById("fb4c").style.display="block"; }
+    }
+
+    function answer5(choice){
+      hideGroup(["fb5a","fb5b","fb5c"]);
+      if(choice==="k"){ document.getElementById("fb5a").style.display="block"; }
+      if(choice==="-k"){ document.getElementById("fb5b").style.display="block"; }
+      if(choice==="0"){ document.getElementById("fb5c").style.display="block"; }
+    }
+
+    function toggleHint(id){
+      const box = document.getElementById(id);
+      box.style.display = (box.style.display === "block") ? "none" : "block";
+    }
+
+    window.addEventListener("load", () => {
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise();
+      }
+    });
+  </script>
+</body>
+</html>
